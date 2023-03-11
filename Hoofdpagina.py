@@ -2,17 +2,16 @@ import streamlit as st
 import functions as fn
 
 st.set_page_config(page_title="ProcessMinded App Omgeving", layout="wide")
-
 st.title("ProcessMinded App Omgeving")
-st.text(""" Deze omgeving bevat klein aapjes die jullie leven makkelijker kunnen maken. 
-Van import tools tot tabellen maken hier kunnen jullie wat vinden """)
 
-text_import_export = """ Als jullie willen een groot antaal gegevens naar ProMise Online importeren kunnen jullie de 
-volgende app gebruiken. Hier kunnen jullie de Export van een Klant toevoegen als bron en de Imports van stappen 3,6,7 en 
-8 maken.de geproduceerde bestanden worden netjes in een map opgeslagen"""
+st.text("""Deze omgeving bevat kleine aapjes die 
+jullie leven makkelijker kunnen maken. Van import tools tot tabellen maken hier kunnen jullie wat vinden.
+""")
 
 with st.expander("Import/Export App"):
-    st.text(text_import_export)
+    st.text(""" Als jullie willen een groot antaal gegevens naar ProMise Online importeren kunnen jullie de 
+volgende app gebruiken. Hier kunnen jullie de Export van een Klant toevoegen als bron en de Imports van 
+stappen 3,6,7 en 8 maken.de geproduceerde bestanden worden netjes in een map opgeslagen""")
     file1_path = st.file_uploader("Bestaand kiezen")
     if file1_path:
         Initial_file = fn.import_klant(file1_path)
@@ -150,3 +149,6 @@ with st.expander("Import/Export App"):
                        data=zip_contents,
                        file_name="file.zip",
                        mime="application/zip")
+
+with st.expander("Tabbelen App"):
+    st.text("Tabellen App")
