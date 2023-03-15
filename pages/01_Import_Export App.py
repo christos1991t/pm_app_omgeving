@@ -1,14 +1,14 @@
 import streamlit as st
-import functions as fn
+import functions_import as fn
 
 st.set_page_config(page_title="Import/Export App", layout="wide")
 st.title("Import/Export App")
 st.markdown(""" Als jullie willen een groot antaal gegevens naar ProMise Online importeren kunnen jullie de 
 volgende app gebruiken. Hier kunnen jullie de Export van een Klant toevoegen als bron en de Imports van 
-stappen 3,6,7 en 8 maken.de geproduceerde bestanden worden netjes in een map opgeslagen""")
+stappen 3,6,7 en 8 maken. De geproduceerde bestanden worden netjes in een zip-map opgeslagen""")
 
 
-file1_path = st.file_uploader("Bestaand kiezen")
+file1_path = st.file_uploader("Bestaand kiezen", key="up1")
 if file1_path:
     Initial_file = fn.import_klant(file1_path)
     table = st.table(Initial_file[:0])
@@ -65,7 +65,7 @@ with tab4:
         controleur = st.text_input("Controleur")
         status_controle = st.text_input("Status controle")
 
-button2 = st.button("Match Columns", key="button2")
+button2 = st.button("Match Kolommen", key="button2")
 
 if button2:
     fn.submit_columns(idon=idon, idog=idog, eistitel=eistitel, eistekst=eistekst,
@@ -141,7 +141,7 @@ df4 = fn.submit_columns(idon=idon, idog=idog, eistitel=eistitel, eistekst=eistek
                         object_id_og=object_id_og, objectpo=objectpo, file1_path=file1_path)[3]
 
 zip_contents = fn.imports_maken(df1, df2, df3, df4)
-st.download_button(label="Click here to download the file",
+st.download_button(label="Zip Downloaden",
                    data=zip_contents,
                    file_name="file.zip",
                    mime="application/zip")

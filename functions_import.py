@@ -308,7 +308,7 @@ def submit_columns(idon, idog, eistitel, eistekst,
             Step_8_Import.loc[:, 'Frequentie'] = Step_7_Import.loc[:, 'Frequentie']
         else:
             Step_8_Import.loc[:, 'Frequentie'] = Step_7_Import.loc[:, 'Frequentie'] = \
-                import_klant(file1_path).loc[:, frequentie ]
+                import_klant(file1_path).loc[:, frequentie]
 
         if verificator == '':
             Step_8_Import.loc[:, 'Verificator'] = Step_7_Import.loc[:, 'Verificator']
