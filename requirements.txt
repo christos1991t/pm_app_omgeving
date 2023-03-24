@@ -57,3 +57,5 @@ urllib3==1.26.14
 validators==0.20.0
 XlsxWriter==3.0.9
 zipp==3.15.0
+
+plotly~=5.13.1
